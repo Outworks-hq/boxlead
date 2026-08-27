@@ -21,6 +21,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as BrowseIndexRouteImport } from './routes/browse.index'
 import { Route as BrowseObtainerIdRouteImport } from './routes/browse.$obtainerId'
 import { Route as CompanyIndexRouteImport } from './routes/company.index'
+import { Route as CompanyMessagesRouteImport } from './routes/company.messages'
 import { Route as CompanyNeedsRouteImport } from './routes/company.needs'
 import { Route as CompanyObtainersRouteImport } from './routes/company.obtainers'
 import { Route as CompanyPoolsRouteImport } from './routes/company.pools'
@@ -88,6 +89,11 @@ const CompanyIndexRoute = CompanyIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanyMessagesRoute = CompanyMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const CompanyNeedsRoute = CompanyNeedsRouteImport.update({
   id: '/needs',
   path: '/needs',
@@ -130,6 +136,7 @@ export interface FileRoutesByFullPath {
   '/needs': typeof NeedsRouteWithChildren
   '/pricing': typeof PricingRoute
   '/browse/$obtainerId': typeof BrowseObtainerIdRoute
+  '/company/messages': typeof CompanyMessagesRoute
   '/company/needs': typeof CompanyNeedsRoute
   '/company/obtainers': typeof CompanyObtainersRoute
   '/company/pools': typeof CompanyPoolsRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/how-it-works': typeof HowItWorksRoute
   '/pricing': typeof PricingRoute
   '/browse/$obtainerId': typeof BrowseObtainerIdRoute
+  '/company/messages': typeof CompanyMessagesRoute
   '/company/needs': typeof CompanyNeedsRoute
   '/company/obtainers': typeof CompanyObtainersRoute
   '/company/pools': typeof CompanyPoolsRoute
@@ -168,6 +176,7 @@ export interface FileRoutesById {
   '/needs': typeof NeedsRouteWithChildren
   '/pricing': typeof PricingRoute
   '/browse/$obtainerId': typeof BrowseObtainerIdRoute
+  '/company/messages': typeof CompanyMessagesRoute
   '/company/needs': typeof CompanyNeedsRoute
   '/company/obtainers': typeof CompanyObtainersRoute
   '/company/pools': typeof CompanyPoolsRoute
@@ -190,6 +199,7 @@ export interface FileRouteTypes {
     | '/needs'
     | '/pricing'
     | '/browse/$obtainerId'
+    | '/company/messages'
     | '/company/needs'
     | '/company/obtainers'
     | '/company/pools'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/how-it-works'
     | '/pricing'
     | '/browse/$obtainerId'
+    | '/company/messages'
     | '/company/needs'
     | '/company/obtainers'
     | '/company/pools'
@@ -227,6 +238,7 @@ export interface FileRouteTypes {
     | '/needs'
     | '/pricing'
     | '/browse/$obtainerId'
+    | '/company/messages'
     | '/company/needs'
     | '/company/obtainers'
     | '/company/pools'
@@ -335,6 +347,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyIndexRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/messages': {
+      id: '/company/messages'
+      path: '/messages'
+      fullPath: '/company/messages'
+      preLoaderRoute: typeof CompanyMessagesRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/needs': {
       id: '/company/needs'
       path: '/needs'
@@ -394,6 +413,7 @@ const BrowseRouteWithChildren =
   BrowseRoute._addFileChildren(BrowseRouteChildren)
 
 interface CompanyRouteChildren {
+  CompanyMessagesRoute: typeof CompanyMessagesRoute
   CompanyNeedsRoute: typeof CompanyNeedsRoute
   CompanyObtainersRoute: typeof CompanyObtainersRoute
   CompanyPoolsRoute: typeof CompanyPoolsRoute
@@ -402,6 +422,7 @@ interface CompanyRouteChildren {
 }
 
 const CompanyRouteChildren: CompanyRouteChildren = {
+  CompanyMessagesRoute: CompanyMessagesRoute,
   CompanyNeedsRoute: CompanyNeedsRoute,
   CompanyObtainersRoute: CompanyObtainersRoute,
   CompanyPoolsRoute: CompanyPoolsRoute,
