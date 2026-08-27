@@ -18,7 +18,7 @@ export const Route = createFileRoute("/obtainer/services")({
       { property: "og:description", content: "Manage the recurring services you offer." },
     ],
   }),
-  component: ObtainerServices;
+  component: ObtainerServices,
 });
 
 function ObtainerServices() {
