@@ -31,6 +31,7 @@ import { Route as CompanyServicesRouteImport } from './routes/company.services'
 import { Route as CompanySettingsRouteImport } from './routes/company.settings'
 import { Route as NeedsIndexRouteImport } from './routes/needs.index'
 import { Route as NeedsNeedIdRouteImport } from './routes/needs.$needId'
+import { Route as ObtainerIndexRouteImport } from './routes/obtainer.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -142,6 +143,11 @@ const NeedsNeedIdRoute = NeedsNeedIdRouteImport.update({
   path: '/$needId',
   getParentRoute: () => NeedsRoute,
 } as any)
+const ObtainerIndexRoute = ObtainerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ObtainerRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -152,7 +158,7 @@ export interface FileRoutesByFullPath {
   '/for-obtainers': typeof ForObtainersRoute
   '/how-it-works': typeof HowItWorksRoute
   '/needs': typeof NeedsRouteWithChildren
-  '/obtainer': typeof ObtainerRoute
+  '/obtainer': typeof ObtainerRouteWithChildren
   '/pricing': typeof PricingRoute
   '/browse/$obtainerId': typeof BrowseObtainerIdRoute
   '/company/messages': typeof CompanyMessagesRoute
@@ -166,6 +172,7 @@ export interface FileRoutesByFullPath {
   '/browse/': typeof BrowseIndexRoute
   '/company/': typeof CompanyIndexRoute
   '/needs/': typeof NeedsIndexRoute
+  '/obtainer/': typeof ObtainerIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -173,7 +180,6 @@ export interface FileRoutesByTo {
   '/for-companies': typeof ForCompaniesRoute
   '/for-obtainers': typeof ForObtainersRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/obtainer': typeof ObtainerRoute
   '/pricing': typeof PricingRoute
   '/browse/$obtainerId': typeof BrowseObtainerIdRoute
   '/company/messages': typeof CompanyMessagesRoute
@@ -187,6 +193,7 @@ export interface FileRoutesByTo {
   '/browse': typeof BrowseIndexRoute
   '/company': typeof CompanyIndexRoute
   '/needs': typeof NeedsIndexRoute
+  '/obtainer': typeof ObtainerIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -198,7 +205,7 @@ export interface FileRoutesById {
   '/for-obtainers': typeof ForObtainersRoute
   '/how-it-works': typeof HowItWorksRoute
   '/needs': typeof NeedsRouteWithChildren
-  '/obtainer': typeof ObtainerRoute
+  '/obtainer': typeof ObtainerRouteWithChildren
   '/pricing': typeof PricingRoute
   '/browse/$obtainerId': typeof BrowseObtainerIdRoute
   '/company/messages': typeof CompanyMessagesRoute
@@ -212,6 +219,7 @@ export interface FileRoutesById {
   '/browse/': typeof BrowseIndexRoute
   '/company/': typeof CompanyIndexRoute
   '/needs/': typeof NeedsIndexRoute
+  '/obtainer/': typeof ObtainerIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -238,6 +246,7 @@ export interface FileRouteTypes {
     | '/browse/'
     | '/company/'
     | '/needs/'
+    | '/obtainer/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -245,7 +254,6 @@ export interface FileRouteTypes {
     | '/for-companies'
     | '/for-obtainers'
     | '/how-it-works'
-    | '/obtainer'
     | '/pricing'
     | '/browse/$obtainerId'
     | '/company/messages'
@@ -259,6 +267,7 @@ export interface FileRouteTypes {
     | '/browse'
     | '/company'
     | '/needs'
+    | '/obtainer'
   id:
     | '__root__'
     | '/'
@@ -283,6 +292,7 @@ export interface FileRouteTypes {
     | '/browse/'
     | '/company/'
     | '/needs/'
+    | '/obtainer/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -294,7 +304,7 @@ export interface RootRouteChildren {
   ForObtainersRoute: typeof ForObtainersRoute
   HowItWorksRoute: typeof HowItWorksRoute
   NeedsRoute: typeof NeedsRouteWithChildren
-  ObtainerRoute: typeof ObtainerRoute
+  ObtainerRoute: typeof ObtainerRouteWithChildren
   PricingRoute: typeof PricingRoute
 }
 
@@ -454,6 +464,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NeedsNeedIdRouteImport
       parentRoute: typeof NeedsRoute
     }
+    '/obtainer/': {
+      id: '/obtainer/'
+      path: '/'
+      fullPath: '/obtainer/'
+      preLoaderRoute: typeof ObtainerIndexRouteImport
+      parentRoute: typeof ObtainerRoute
+    }
   }
 }
 
@@ -507,6 +524,18 @@ const NeedsRouteChildren: NeedsRouteChildren = {
 
 const NeedsRouteWithChildren = NeedsRoute._addFileChildren(NeedsRouteChildren)
 
+interface ObtainerRouteChildren {
+  ObtainerIndexRoute: typeof ObtainerIndexRoute
+}
+
+const ObtainerRouteChildren: ObtainerRouteChildren = {
+  ObtainerIndexRoute: ObtainerIndexRoute,
+}
+
+const ObtainerRouteWithChildren = ObtainerRoute._addFileChildren(
+  ObtainerRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
@@ -516,7 +545,7 @@ const rootRouteChildren: RootRouteChildren = {
   ForObtainersRoute: ForObtainersRoute,
   HowItWorksRoute: HowItWorksRoute,
   NeedsRoute: NeedsRouteWithChildren,
-  ObtainerRoute: ObtainerRoute,
+  ObtainerRoute: ObtainerRouteWithChildren,
   PricingRoute: PricingRoute,
 }
 export const routeTree = rootRouteImport
