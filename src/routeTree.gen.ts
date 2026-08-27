@@ -33,6 +33,7 @@ import { Route as NeedsIndexRouteImport } from './routes/needs.index'
 import { Route as NeedsNeedIdRouteImport } from './routes/needs.$needId'
 import { Route as ObtainerIndexRouteImport } from './routes/obtainer.index'
 import { Route as ObtainerFindWorkRouteImport } from './routes/obtainer.find-work'
+import { Route as ObtainerServicesRouteImport } from './routes/obtainer.services'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -154,6 +155,11 @@ const ObtainerFindWorkRoute = ObtainerFindWorkRouteImport.update({
   path: '/find-work',
   getParentRoute: () => ObtainerRoute,
 } as any)
+const ObtainerServicesRoute = ObtainerServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => ObtainerRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -176,6 +182,7 @@ export interface FileRoutesByFullPath {
   '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
+  '/obtainer/services': typeof ObtainerServicesRoute
   '/browse/': typeof BrowseIndexRoute
   '/company/': typeof CompanyIndexRoute
   '/needs/': typeof NeedsIndexRoute
@@ -198,6 +205,7 @@ export interface FileRoutesByTo {
   '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
+  '/obtainer/services': typeof ObtainerServicesRoute
   '/browse': typeof BrowseIndexRoute
   '/company': typeof CompanyIndexRoute
   '/needs': typeof NeedsIndexRoute
@@ -225,6 +233,7 @@ export interface FileRoutesById {
   '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
+  '/obtainer/services': typeof ObtainerServicesRoute
   '/browse/': typeof BrowseIndexRoute
   '/company/': typeof CompanyIndexRoute
   '/needs/': typeof NeedsIndexRoute
@@ -253,6 +262,7 @@ export interface FileRouteTypes {
     | '/company/settings'
     | '/needs/$needId'
     | '/obtainer/find-work'
+    | '/obtainer/services'
     | '/browse/'
     | '/company/'
     | '/needs/'
@@ -275,6 +285,7 @@ export interface FileRouteTypes {
     | '/company/settings'
     | '/needs/$needId'
     | '/obtainer/find-work'
+    | '/obtainer/services'
     | '/browse'
     | '/company'
     | '/needs'
@@ -301,6 +312,7 @@ export interface FileRouteTypes {
     | '/company/settings'
     | '/needs/$needId'
     | '/obtainer/find-work'
+    | '/obtainer/services'
     | '/browse/'
     | '/company/'
     | '/needs/'
@@ -490,6 +502,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ObtainerFindWorkRouteImport
       parentRoute: typeof ObtainerRoute
     }
+    '/obtainer/services': {
+      id: '/obtainer/services'
+      path: '/services'
+      fullPath: '/obtainer/services'
+      preLoaderRoute: typeof ObtainerServicesRouteImport
+      parentRoute: typeof ObtainerRoute
+    }
   }
 }
 
@@ -545,11 +564,13 @@ const NeedsRouteWithChildren = NeedsRoute._addFileChildren(NeedsRouteChildren)
 
 interface ObtainerRouteChildren {
   ObtainerFindWorkRoute: typeof ObtainerFindWorkRoute
+  ObtainerServicesRoute: typeof ObtainerServicesRoute
   ObtainerIndexRoute: typeof ObtainerIndexRoute
 }
 
 const ObtainerRouteChildren: ObtainerRouteChildren = {
   ObtainerFindWorkRoute: ObtainerFindWorkRoute,
+  ObtainerServicesRoute: ObtainerServicesRoute,
   ObtainerIndexRoute: ObtainerIndexRoute,
 }
 
