@@ -24,6 +24,7 @@ import { Route as CompanyIndexRouteImport } from './routes/company.index'
 import { Route as CompanyMessagesRouteImport } from './routes/company.messages'
 import { Route as CompanyNeedsRouteImport } from './routes/company.needs'
 import { Route as CompanyObtainersRouteImport } from './routes/company.obtainers'
+import { Route as CompanyPaymentsRouteImport } from './routes/company.payments'
 import { Route as CompanyPoolsRouteImport } from './routes/company.pools'
 import { Route as CompanyServicesRouteImport } from './routes/company.services'
 import { Route as NeedsIndexRouteImport } from './routes/needs.index'
@@ -104,6 +105,11 @@ const CompanyObtainersRoute = CompanyObtainersRouteImport.update({
   path: '/obtainers',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanyPaymentsRoute = CompanyPaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const CompanyPoolsRoute = CompanyPoolsRouteImport.update({
   id: '/pools',
   path: '/pools',
@@ -139,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/company/messages': typeof CompanyMessagesRoute
   '/company/needs': typeof CompanyNeedsRoute
   '/company/obtainers': typeof CompanyObtainersRoute
+  '/company/payments': typeof CompanyPaymentsRoute
   '/company/pools': typeof CompanyPoolsRoute
   '/company/services': typeof CompanyServicesRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/company/messages': typeof CompanyMessagesRoute
   '/company/needs': typeof CompanyNeedsRoute
   '/company/obtainers': typeof CompanyObtainersRoute
+  '/company/payments': typeof CompanyPaymentsRoute
   '/company/pools': typeof CompanyPoolsRoute
   '/company/services': typeof CompanyServicesRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
@@ -179,6 +187,7 @@ export interface FileRoutesById {
   '/company/messages': typeof CompanyMessagesRoute
   '/company/needs': typeof CompanyNeedsRoute
   '/company/obtainers': typeof CompanyObtainersRoute
+  '/company/payments': typeof CompanyPaymentsRoute
   '/company/pools': typeof CompanyPoolsRoute
   '/company/services': typeof CompanyServicesRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
@@ -202,6 +211,7 @@ export interface FileRouteTypes {
     | '/company/messages'
     | '/company/needs'
     | '/company/obtainers'
+    | '/company/payments'
     | '/company/pools'
     | '/company/services'
     | '/needs/$needId'
@@ -220,6 +230,7 @@ export interface FileRouteTypes {
     | '/company/messages'
     | '/company/needs'
     | '/company/obtainers'
+    | '/company/payments'
     | '/company/pools'
     | '/company/services'
     | '/needs/$needId'
@@ -241,6 +252,7 @@ export interface FileRouteTypes {
     | '/company/messages'
     | '/company/needs'
     | '/company/obtainers'
+    | '/company/payments'
     | '/company/pools'
     | '/company/services'
     | '/needs/$needId'
@@ -368,6 +380,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyObtainersRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/payments': {
+      id: '/company/payments'
+      path: '/payments'
+      fullPath: '/company/payments'
+      preLoaderRoute: typeof CompanyPaymentsRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/pools': {
       id: '/company/pools'
       path: '/pools'
@@ -416,6 +435,7 @@ interface CompanyRouteChildren {
   CompanyMessagesRoute: typeof CompanyMessagesRoute
   CompanyNeedsRoute: typeof CompanyNeedsRoute
   CompanyObtainersRoute: typeof CompanyObtainersRoute
+  CompanyPaymentsRoute: typeof CompanyPaymentsRoute
   CompanyPoolsRoute: typeof CompanyPoolsRoute
   CompanyServicesRoute: typeof CompanyServicesRoute
   CompanyIndexRoute: typeof CompanyIndexRoute
@@ -425,6 +445,7 @@ const CompanyRouteChildren: CompanyRouteChildren = {
   CompanyMessagesRoute: CompanyMessagesRoute,
   CompanyNeedsRoute: CompanyNeedsRoute,
   CompanyObtainersRoute: CompanyObtainersRoute,
+  CompanyPaymentsRoute: CompanyPaymentsRoute,
   CompanyPoolsRoute: CompanyPoolsRoute,
   CompanyServicesRoute: CompanyServicesRoute,
   CompanyIndexRoute: CompanyIndexRoute,
