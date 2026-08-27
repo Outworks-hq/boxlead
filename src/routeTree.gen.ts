@@ -10,33 +10,243 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BrowseRouteImport } from './routes/browse'
+import { Route as CompanyRouteImport } from './routes/company'
+import { Route as ForCompaniesRouteImport } from './routes/for-companies'
+import { Route as ForObtainersRouteImport } from './routes/for-obtainers'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as NeedsRouteImport } from './routes/needs'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as BrowseIndexRouteImport } from './routes/browse.index'
+import { Route as BrowseObtainerIdRouteImport } from './routes/browse.$obtainerId'
+import { Route as CompanyIndexRouteImport } from './routes/company.index'
+import { Route as CompanyNeedsRouteImport } from './routes/company.needs'
+import { Route as CompanyObtainersRouteImport } from './routes/company.obtainers'
+import { Route as CompanyPoolsRouteImport } from './routes/company.pools'
+import { Route as CompanyServicesRouteImport } from './routes/company.services'
+import { Route as NeedsIndexRouteImport } from './routes/needs.index'
+import { Route as NeedsNeedIdRouteImport } from './routes/needs.$needId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrowseRoute = BrowseRouteImport.update({
+  id: '/browse',
+  path: '/browse',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyRoute = CompanyRouteImport.update({
+  id: '/company',
+  path: '/company',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForCompaniesRoute = ForCompaniesRouteImport.update({
+  id: '/for-companies',
+  path: '/for-companies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForObtainersRoute = ForObtainersRouteImport.update({
+  id: '/for-obtainers',
+  path: '/for-obtainers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NeedsRoute = NeedsRouteImport.update({
+  id: '/needs',
+  path: '/needs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrowseIndexRoute = BrowseIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BrowseRoute,
+} as any)
+const BrowseObtainerIdRoute = BrowseObtainerIdRouteImport.update({
+  id: '/$obtainerId',
+  path: '/$obtainerId',
+  getParentRoute: () => BrowseRoute,
+} as any)
+const CompanyIndexRoute = CompanyIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyNeedsRoute = CompanyNeedsRouteImport.update({
+  id: '/needs',
+  path: '/needs',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyObtainersRoute = CompanyObtainersRouteImport.update({
+  id: '/obtainers',
+  path: '/obtainers',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyPoolsRoute = CompanyPoolsRouteImport.update({
+  id: '/pools',
+  path: '/pools',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyServicesRoute = CompanyServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const NeedsIndexRoute = NeedsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NeedsRoute,
+} as any)
+const NeedsNeedIdRoute = NeedsNeedIdRouteImport.update({
+  id: '/$needId',
+  path: '/$needId',
+  getParentRoute: () => NeedsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/browse': typeof BrowseRouteWithChildren
+  '/company': typeof CompanyRouteWithChildren
+  '/for-companies': typeof ForCompaniesRoute
+  '/for-obtainers': typeof ForObtainersRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/needs': typeof NeedsRouteWithChildren
+  '/pricing': typeof PricingRoute
+  '/browse/$obtainerId': typeof BrowseObtainerIdRoute
+  '/company/needs': typeof CompanyNeedsRoute
+  '/company/obtainers': typeof CompanyObtainersRoute
+  '/company/pools': typeof CompanyPoolsRoute
+  '/company/services': typeof CompanyServicesRoute
+  '/needs/$needId': typeof NeedsNeedIdRoute
+  '/browse/': typeof BrowseIndexRoute
+  '/company/': typeof CompanyIndexRoute
+  '/needs/': typeof NeedsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/for-companies': typeof ForCompaniesRoute
+  '/for-obtainers': typeof ForObtainersRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/pricing': typeof PricingRoute
+  '/browse/$obtainerId': typeof BrowseObtainerIdRoute
+  '/company/needs': typeof CompanyNeedsRoute
+  '/company/obtainers': typeof CompanyObtainersRoute
+  '/company/pools': typeof CompanyPoolsRoute
+  '/company/services': typeof CompanyServicesRoute
+  '/needs/$needId': typeof NeedsNeedIdRoute
+  '/browse': typeof BrowseIndexRoute
+  '/company': typeof CompanyIndexRoute
+  '/needs': typeof NeedsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/browse': typeof BrowseRouteWithChildren
+  '/company': typeof CompanyRouteWithChildren
+  '/for-companies': typeof ForCompaniesRoute
+  '/for-obtainers': typeof ForObtainersRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/needs': typeof NeedsRouteWithChildren
+  '/pricing': typeof PricingRoute
+  '/browse/$obtainerId': typeof BrowseObtainerIdRoute
+  '/company/needs': typeof CompanyNeedsRoute
+  '/company/obtainers': typeof CompanyObtainersRoute
+  '/company/pools': typeof CompanyPoolsRoute
+  '/company/services': typeof CompanyServicesRoute
+  '/needs/$needId': typeof NeedsNeedIdRoute
+  '/browse/': typeof BrowseIndexRoute
+  '/company/': typeof CompanyIndexRoute
+  '/needs/': typeof NeedsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/browse'
+    | '/company'
+    | '/for-companies'
+    | '/for-obtainers'
+    | '/how-it-works'
+    | '/needs'
+    | '/pricing'
+    | '/browse/$obtainerId'
+    | '/company/needs'
+    | '/company/obtainers'
+    | '/company/pools'
+    | '/company/services'
+    | '/needs/$needId'
+    | '/browse/'
+    | '/company/'
+    | '/needs/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/for-companies'
+    | '/for-obtainers'
+    | '/how-it-works'
+    | '/pricing'
+    | '/browse/$obtainerId'
+    | '/company/needs'
+    | '/company/obtainers'
+    | '/company/pools'
+    | '/company/services'
+    | '/needs/$needId'
+    | '/browse'
+    | '/company'
+    | '/needs'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/browse'
+    | '/company'
+    | '/for-companies'
+    | '/for-obtainers'
+    | '/how-it-works'
+    | '/needs'
+    | '/pricing'
+    | '/browse/$obtainerId'
+    | '/company/needs'
+    | '/company/obtainers'
+    | '/company/pools'
+    | '/company/services'
+    | '/needs/$needId'
+    | '/browse/'
+    | '/company/'
+    | '/needs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  BrowseRoute: typeof BrowseRouteWithChildren
+  CompanyRoute: typeof CompanyRouteWithChildren
+  ForCompaniesRoute: typeof ForCompaniesRoute
+  ForObtainersRoute: typeof ForObtainersRoute
+  HowItWorksRoute: typeof HowItWorksRoute
+  NeedsRoute: typeof NeedsRouteWithChildren
+  PricingRoute: typeof PricingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +258,182 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/browse': {
+      id: '/browse'
+      path: '/browse'
+      fullPath: '/browse'
+      preLoaderRoute: typeof BrowseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company': {
+      id: '/company'
+      path: '/company'
+      fullPath: '/company'
+      preLoaderRoute: typeof CompanyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-companies': {
+      id: '/for-companies'
+      path: '/for-companies'
+      fullPath: '/for-companies'
+      preLoaderRoute: typeof ForCompaniesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-obtainers': {
+      id: '/for-obtainers'
+      path: '/for-obtainers'
+      fullPath: '/for-obtainers'
+      preLoaderRoute: typeof ForObtainersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/needs': {
+      id: '/needs'
+      path: '/needs'
+      fullPath: '/needs'
+      preLoaderRoute: typeof NeedsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/browse/': {
+      id: '/browse/'
+      path: '/'
+      fullPath: '/browse/'
+      preLoaderRoute: typeof BrowseIndexRouteImport
+      parentRoute: typeof BrowseRoute
+    }
+    '/browse/$obtainerId': {
+      id: '/browse/$obtainerId'
+      path: '/$obtainerId'
+      fullPath: '/browse/$obtainerId'
+      preLoaderRoute: typeof BrowseObtainerIdRouteImport
+      parentRoute: typeof BrowseRoute
+    }
+    '/company/': {
+      id: '/company/'
+      path: '/'
+      fullPath: '/company/'
+      preLoaderRoute: typeof CompanyIndexRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/needs': {
+      id: '/company/needs'
+      path: '/needs'
+      fullPath: '/company/needs'
+      preLoaderRoute: typeof CompanyNeedsRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/obtainers': {
+      id: '/company/obtainers'
+      path: '/obtainers'
+      fullPath: '/company/obtainers'
+      preLoaderRoute: typeof CompanyObtainersRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/pools': {
+      id: '/company/pools'
+      path: '/pools'
+      fullPath: '/company/pools'
+      preLoaderRoute: typeof CompanyPoolsRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/services': {
+      id: '/company/services'
+      path: '/services'
+      fullPath: '/company/services'
+      preLoaderRoute: typeof CompanyServicesRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/needs/': {
+      id: '/needs/'
+      path: '/'
+      fullPath: '/needs/'
+      preLoaderRoute: typeof NeedsIndexRouteImport
+      parentRoute: typeof NeedsRoute
+    }
+    '/needs/$needId': {
+      id: '/needs/$needId'
+      path: '/$needId'
+      fullPath: '/needs/$needId'
+      preLoaderRoute: typeof NeedsNeedIdRouteImport
+      parentRoute: typeof NeedsRoute
+    }
   }
 }
 
+interface BrowseRouteChildren {
+  BrowseObtainerIdRoute: typeof BrowseObtainerIdRoute
+  BrowseIndexRoute: typeof BrowseIndexRoute
+}
+
+const BrowseRouteChildren: BrowseRouteChildren = {
+  BrowseObtainerIdRoute: BrowseObtainerIdRoute,
+  BrowseIndexRoute: BrowseIndexRoute,
+}
+
+const BrowseRouteWithChildren =
+  BrowseRoute._addFileChildren(BrowseRouteChildren)
+
+interface CompanyRouteChildren {
+  CompanyNeedsRoute: typeof CompanyNeedsRoute
+  CompanyObtainersRoute: typeof CompanyObtainersRoute
+  CompanyPoolsRoute: typeof CompanyPoolsRoute
+  CompanyServicesRoute: typeof CompanyServicesRoute
+  CompanyIndexRoute: typeof CompanyIndexRoute
+}
+
+const CompanyRouteChildren: CompanyRouteChildren = {
+  CompanyNeedsRoute: CompanyNeedsRoute,
+  CompanyObtainersRoute: CompanyObtainersRoute,
+  CompanyPoolsRoute: CompanyPoolsRoute,
+  CompanyServicesRoute: CompanyServicesRoute,
+  CompanyIndexRoute: CompanyIndexRoute,
+}
+
+const CompanyRouteWithChildren =
+  CompanyRoute._addFileChildren(CompanyRouteChildren)
+
+interface NeedsRouteChildren {
+  NeedsNeedIdRoute: typeof NeedsNeedIdRoute
+  NeedsIndexRoute: typeof NeedsIndexRoute
+}
+
+const NeedsRouteChildren: NeedsRouteChildren = {
+  NeedsNeedIdRoute: NeedsNeedIdRoute,
+  NeedsIndexRoute: NeedsIndexRoute,
+}
+
+const NeedsRouteWithChildren = NeedsRoute._addFileChildren(NeedsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  BrowseRoute: BrowseRouteWithChildren,
+  CompanyRoute: CompanyRouteWithChildren,
+  ForCompaniesRoute: ForCompaniesRoute,
+  ForObtainersRoute: ForObtainersRoute,
+  HowItWorksRoute: HowItWorksRoute,
+  NeedsRoute: NeedsRouteWithChildren,
+  PricingRoute: PricingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
