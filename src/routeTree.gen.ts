@@ -27,6 +27,7 @@ import { Route as CompanyObtainersRouteImport } from './routes/company.obtainers
 import { Route as CompanyPaymentsRouteImport } from './routes/company.payments'
 import { Route as CompanyPoolsRouteImport } from './routes/company.pools'
 import { Route as CompanyServicesRouteImport } from './routes/company.services'
+import { Route as CompanySettingsRouteImport } from './routes/company.settings'
 import { Route as NeedsIndexRouteImport } from './routes/needs.index'
 import { Route as NeedsNeedIdRouteImport } from './routes/needs.$needId'
 
@@ -120,6 +121,11 @@ const CompanyServicesRoute = CompanyServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanySettingsRoute = CompanySettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const NeedsIndexRoute = NeedsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -148,6 +154,7 @@ export interface FileRoutesByFullPath {
   '/company/payments': typeof CompanyPaymentsRoute
   '/company/pools': typeof CompanyPoolsRoute
   '/company/services': typeof CompanyServicesRoute
+  '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/browse/': typeof BrowseIndexRoute
   '/company/': typeof CompanyIndexRoute
@@ -167,6 +174,7 @@ export interface FileRoutesByTo {
   '/company/payments': typeof CompanyPaymentsRoute
   '/company/pools': typeof CompanyPoolsRoute
   '/company/services': typeof CompanyServicesRoute
+  '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/browse': typeof BrowseIndexRoute
   '/company': typeof CompanyIndexRoute
@@ -190,6 +198,7 @@ export interface FileRoutesById {
   '/company/payments': typeof CompanyPaymentsRoute
   '/company/pools': typeof CompanyPoolsRoute
   '/company/services': typeof CompanyServicesRoute
+  '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/browse/': typeof BrowseIndexRoute
   '/company/': typeof CompanyIndexRoute
@@ -214,6 +223,7 @@ export interface FileRouteTypes {
     | '/company/payments'
     | '/company/pools'
     | '/company/services'
+    | '/company/settings'
     | '/needs/$needId'
     | '/browse/'
     | '/company/'
@@ -233,6 +243,7 @@ export interface FileRouteTypes {
     | '/company/payments'
     | '/company/pools'
     | '/company/services'
+    | '/company/settings'
     | '/needs/$needId'
     | '/browse'
     | '/company'
@@ -255,6 +266,7 @@ export interface FileRouteTypes {
     | '/company/payments'
     | '/company/pools'
     | '/company/services'
+    | '/company/settings'
     | '/needs/$needId'
     | '/browse/'
     | '/company/'
@@ -401,6 +413,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyServicesRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/settings': {
+      id: '/company/settings'
+      path: '/settings'
+      fullPath: '/company/settings'
+      preLoaderRoute: typeof CompanySettingsRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/needs/': {
       id: '/needs/'
       path: '/'
@@ -438,6 +457,7 @@ interface CompanyRouteChildren {
   CompanyPaymentsRoute: typeof CompanyPaymentsRoute
   CompanyPoolsRoute: typeof CompanyPoolsRoute
   CompanyServicesRoute: typeof CompanyServicesRoute
+  CompanySettingsRoute: typeof CompanySettingsRoute
   CompanyIndexRoute: typeof CompanyIndexRoute
 }
 
@@ -448,6 +468,7 @@ const CompanyRouteChildren: CompanyRouteChildren = {
   CompanyPaymentsRoute: CompanyPaymentsRoute,
   CompanyPoolsRoute: CompanyPoolsRoute,
   CompanyServicesRoute: CompanyServicesRoute,
+  CompanySettingsRoute: CompanySettingsRoute,
   CompanyIndexRoute: CompanyIndexRoute,
 }
 
