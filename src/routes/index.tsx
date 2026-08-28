@@ -35,7 +35,7 @@ function Home() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-14 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-28 lg:pt-16">
           <div className="max-w-xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-ink-border px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ink-muted">
-              <Repeat className="size-3.5" /> Recurring service relationships
+              <Repeat className="size-3.5" /> Recurring by design
             </span>
             <h1 className="mt-6 text-[2.6rem] font-extrabold leading-[1.05] text-ink-foreground sm:text-6xl">
               Work that repeats.
@@ -45,22 +45,20 @@ function Home() {
               that last.
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-muted sm:text-lg">
-              BoxLead helps companies build ongoing working relationships with trusted Obtainers through
-              recurring services with a clear scope, price, and billing rhythm.
+              BoxLead is where companies find Obtainers who take ongoing responsibility for recurring work — an agreed scope, an agreed price, billed on a rhythm you both choose.
             </p>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-ink-muted sm:text-lg">
-              When recurring work is not needed, Free Pools let companies stay connected with people they
-              trust instead of starting over every time.
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-muted">
+              Stay connected with companies and people you trust, and choose paid task work they send your way.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button variant="light" size="lg" asChild>
                 <Link to="/auth" search={{ mode: "signup" }}>
-                  I need work done <ArrowRight className="size-4" />
+                  I need recurring work done
                 </Link>
               </Button>
               <Button variant="onInk" size="lg" asChild>
                 <Link to="/auth" search={{ mode: "signup" }}>
-                  I provide services and take on work
+                  I provide recurring services
                 </Link>
               </Button>
             </div>
