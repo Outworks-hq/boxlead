@@ -33,6 +33,7 @@ import { Route as NeedsIndexRouteImport } from './routes/needs.index'
 import { Route as NeedsNeedIdRouteImport } from './routes/needs.$needId'
 import { Route as ObtainerIndexRouteImport } from './routes/obtainer.index'
 import { Route as ObtainerFindWorkRouteImport } from './routes/obtainer.find-work'
+import { Route as ObtainerLinksRouteImport } from './routes/obtainer.links'
 import { Route as ObtainerPoolsRouteImport } from './routes/obtainer.pools'
 import { Route as ObtainerRelationshipsRouteImport } from './routes/obtainer.relationships'
 import { Route as ObtainerServicesRouteImport } from './routes/obtainer.services'
@@ -157,6 +158,11 @@ const ObtainerFindWorkRoute = ObtainerFindWorkRouteImport.update({
   path: '/find-work',
   getParentRoute: () => ObtainerRoute,
 } as any)
+const ObtainerLinksRoute = ObtainerLinksRouteImport.update({
+  id: '/links',
+  path: '/links',
+  getParentRoute: () => ObtainerRoute,
+} as any)
 const ObtainerPoolsRoute = ObtainerPoolsRouteImport.update({
   id: '/pools',
   path: '/pools',
@@ -194,6 +200,7 @@ export interface FileRoutesByFullPath {
   '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
+  '/obtainer/links': typeof ObtainerLinksRoute
   '/obtainer/pools': typeof ObtainerPoolsRoute
   '/obtainer/relationships': typeof ObtainerRelationshipsRoute
   '/obtainer/services': typeof ObtainerServicesRoute
@@ -219,6 +226,7 @@ export interface FileRoutesByTo {
   '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
+  '/obtainer/links': typeof ObtainerLinksRoute
   '/obtainer/pools': typeof ObtainerPoolsRoute
   '/obtainer/relationships': typeof ObtainerRelationshipsRoute
   '/obtainer/services': typeof ObtainerServicesRoute
@@ -249,6 +257,7 @@ export interface FileRoutesById {
   '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
+  '/obtainer/links': typeof ObtainerLinksRoute
   '/obtainer/pools': typeof ObtainerPoolsRoute
   '/obtainer/relationships': typeof ObtainerRelationshipsRoute
   '/obtainer/services': typeof ObtainerServicesRoute
@@ -280,6 +289,7 @@ export interface FileRouteTypes {
     | '/company/settings'
     | '/needs/$needId'
     | '/obtainer/find-work'
+    | '/obtainer/links'
     | '/obtainer/pools'
     | '/obtainer/relationships'
     | '/obtainer/services'
@@ -305,6 +315,7 @@ export interface FileRouteTypes {
     | '/company/settings'
     | '/needs/$needId'
     | '/obtainer/find-work'
+    | '/obtainer/links'
     | '/obtainer/pools'
     | '/obtainer/relationships'
     | '/obtainer/services'
@@ -334,6 +345,7 @@ export interface FileRouteTypes {
     | '/company/settings'
     | '/needs/$needId'
     | '/obtainer/find-work'
+    | '/obtainer/links'
     | '/obtainer/pools'
     | '/obtainer/relationships'
     | '/obtainer/services'
@@ -526,6 +538,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ObtainerFindWorkRouteImport
       parentRoute: typeof ObtainerRoute
     }
+    '/obtainer/links': {
+      id: '/obtainer/links'
+      path: '/links'
+      fullPath: '/obtainer/links'
+      preLoaderRoute: typeof ObtainerLinksRouteImport
+      parentRoute: typeof ObtainerRoute
+    }
     '/obtainer/pools': {
       id: '/obtainer/pools'
       path: '/pools'
@@ -602,6 +621,7 @@ const NeedsRouteWithChildren = NeedsRoute._addFileChildren(NeedsRouteChildren)
 
 interface ObtainerRouteChildren {
   ObtainerFindWorkRoute: typeof ObtainerFindWorkRoute
+  ObtainerLinksRoute: typeof ObtainerLinksRoute
   ObtainerPoolsRoute: typeof ObtainerPoolsRoute
   ObtainerRelationshipsRoute: typeof ObtainerRelationshipsRoute
   ObtainerServicesRoute: typeof ObtainerServicesRoute
@@ -610,6 +630,7 @@ interface ObtainerRouteChildren {
 
 const ObtainerRouteChildren: ObtainerRouteChildren = {
   ObtainerFindWorkRoute: ObtainerFindWorkRoute,
+  ObtainerLinksRoute: ObtainerLinksRoute,
   ObtainerPoolsRoute: ObtainerPoolsRoute,
   ObtainerRelationshipsRoute: ObtainerRelationshipsRoute,
   ObtainerServicesRoute: ObtainerServicesRoute,
