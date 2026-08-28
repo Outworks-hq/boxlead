@@ -14,12 +14,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "BoxLead connects companies with obtainers who take ongoing responsibility for recurring work. Set scope, agree a price, keep the relationship running.",
+          "BoxLead connects companies with obtainers who take ongoing responsibility for recurring work — and lets them stay connected in Free Pools where paid task work is offered as it comes up.",
       },
-      { property: "og:title", content: "BoxLead — Recurring service relationships" },
+      { property: "og:title", content: "BoxLead — Recurring services and paid work through trusted connections" },
       {
         property: "og:description",
-        content: "Recurring work, clear scope, lasting relationships. Not projects. Not job posts.",
+        content: "Recurring responsibilities, plus paid task work from people you already trust. Not job posts.",
       },
     ],
   }),
@@ -35,7 +35,7 @@ function Home() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-14 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-28 lg:pt-16">
           <div className="max-w-xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-ink-border px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ink-muted">
-              <Repeat className="size-3.5" /> Recurring by design
+              <Repeat className="size-3.5" /> Recurring work and paid tasks
             </span>
             <h1 className="mt-6 text-[2.6rem] font-extrabold leading-[1.05] text-ink-foreground sm:text-6xl">
               Work that repeats.
@@ -46,17 +46,19 @@ function Home() {
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-muted sm:text-lg">
               BoxLead is where companies find obtainers who take ongoing responsibility for recurring
-              work — an agreed scope, an agreed price, billed on a rhythm you both choose.
+              work — an agreed scope, an agreed price, billed on a rhythm you both choose. And when work
+              isn't recurring, people stay connected in a Free Pool and choose paid tasks as they come up,
+              instead of starting a new freelancer search every time.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button variant="light" size="lg" asChild>
                 <Link to="/auth" search={{ mode: "signup" }}>
-                  I need recurring work done <ArrowRight className="size-4" />
+                  I need work done <ArrowRight className="size-4" />
                 </Link>
               </Button>
               <Button variant="onInk" size="lg" asChild>
                 <Link to="/auth" search={{ mode: "signup" }}>
-                  I provide recurring services
+                  I provide services and take on work
                 </Link>
               </Button>
             </div>
@@ -79,7 +81,7 @@ function Home() {
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
           <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-            Recurring service categories
+            What people take on here
           </p>
           <div className="mt-5 flex flex-wrap gap-2.5">
             {CATEGORIES.map((c) => (
@@ -97,10 +99,11 @@ function Home() {
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-extrabold sm:text-4xl">Built for work that never really ends</h2>
+          <h2 className="text-3xl font-extrabold sm:text-4xl">Two ways to keep work moving</h2>
           <p className="mt-3 text-muted-foreground">
-            Every relationship on BoxLead has a defined scope, a defined price and a defined rhythm. Nothing
-            is a one-off gig, and nothing is a job.
+            Recurring services cover the responsibilities that never really end. Free Pools cover everything
+            else — paid task work sent to people you already trust, with the payment attached before anyone
+            starts. Both have a defined scope and a defined price.
           </p>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -108,17 +111,17 @@ function Home() {
             {
               icon: Repeat,
               title: "Ongoing responsibility",
-              body: "An obtainer takes on a recurring service — design updates, QA passes, monthly close — and keeps it running.",
+              body: "An obtainer takes on a recurring service — design updates, QA passes, monthly close — and keeps it running for an agreed recurring payment.",
             },
             {
               icon: CalendarClock,
-              title: "An agreed rhythm",
-              body: "Weekly, bi-weekly, monthly or quarterly. Billing follows the same rhythm as the work.",
+              title: "Paid work through trusted connections",
+              body: "Join a Free Pool and stay connected to a company, individual or community. When they have paid task work, it appears there with the payment attached and you choose whether to take it.",
             },
             {
               icon: ShieldCheck,
-              title: "Scope both sides confirm",
-              body: "What's included and what isn't is written down before anything starts, and changes need both confirmations.",
+              title: "Scope and payment agreed upfront",
+              body: "Recurring or one-off, what's included and what it pays is written down before anything starts, and paid out once the work is approved.",
             },
           ].map((f) => (
             <div key={f.title} className="rounded-2xl border border-border bg-card p-6 shadow-card">
@@ -137,10 +140,11 @@ function Home() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-xl">
               <h2 className="text-3xl font-extrabold text-ink-foreground sm:text-4xl">
-                Obtainers taking on recurring work
+                Obtainers you can keep working with
               </h2>
               <p className="mt-3 text-ink-muted">
-                People who run a small number of ongoing relationships rather than chasing one-off jobs.
+                People who run a small number of ongoing responsibilities and take on extra paid tasks from
+                the companies and communities whose pools they're in.
               </p>
             </div>
             <Button variant="onInk" asChild>
@@ -190,8 +194,8 @@ function Home() {
             <h3 className="mt-5 text-2xl font-extrabold">For companies</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Post a recurring need or approach an obtainer directly. Agree the scope, confirm the price and
-              the relationship starts. Keep a Free Pool of people you already trust for the occasional extra
-              task.
+              the relationship starts. Then create a Free Pool — your own work space where people you trust
+              stay connected, see the paid tasks you post with payment attached, and choose what to take on.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild>
@@ -210,14 +214,15 @@ function Home() {
             <h3 className="mt-5 text-2xl font-extrabold">For obtainers</h3>
             <p className="mt-3 text-sm leading-relaxed text-ink-muted">
               Publish the recurring services you offer, set your price and rhythm, and take on a small number
-              of relationships you can keep. Share a Private Service Link with companies you already know.
+              of relationships you can keep. Join the Free Pools of companies and communities you trust and
+              pick up paid tasks as they post them — no new search, no starting from scratch each time.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button variant="light" asChild>
                 <Link to="/for-obtainers">How it works for obtainers</Link>
               </Button>
               <Button variant="onInk" asChild>
-                <Link to="/needs">See recurring needs</Link>
+                <Link to="/needs">See available work</Link>
               </Button>
             </div>
           </div>
