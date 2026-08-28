@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CalendarClock, Repeat, ShieldCheck, Users } from "lucide-react";
+import { CalendarClock, Repeat, ShieldCheck, Users } from "lucide-react";
 
 import heroImage from "@/assets/hero-collab.jpg";
 import { Initials, Rating } from "@/components/brand";
