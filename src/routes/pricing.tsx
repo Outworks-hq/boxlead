@@ -67,7 +67,6 @@ function Pricing() {
             <ul className="mt-6 space-y-3 text-sm">
               {[
                 "Publish unlimited recurring services",
-                "Private Service Links for your own clients",
                 "Express interest in recurring needs",
                 "Set your own availability and openings",
               ].map((i) => (

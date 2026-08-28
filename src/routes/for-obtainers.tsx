@@ -82,13 +82,6 @@ function ForObtainers() {
           ))}
         </ol>
 
-        <div className="mt-12 rounded-2xl border border-border bg-secondary/50 p-6 sm:p-8">
-          <h3 className="text-lg font-bold">Private Service Links</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Every recurring service can have a private link you share with companies you already know. They
-            see the scope and price and can start the relationship directly, without browsing the platform.
-          </p>
-        </div>
       </section>
     </PublicShell>
   );
