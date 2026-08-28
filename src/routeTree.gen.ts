@@ -33,6 +33,7 @@ import { Route as LearnMoreTopicRouteImport } from './routes/learn-more.$topic'
 import { Route as NeedsIndexRouteImport } from './routes/needs.index'
 import { Route as NeedsNeedIdRouteImport } from './routes/needs.$needId'
 import { Route as ObtainerIndexRouteImport } from './routes/obtainer.index'
+import { Route as ObtainerEarningsRouteImport } from './routes/obtainer.earnings'
 import { Route as ObtainerFindWorkRouteImport } from './routes/obtainer.find-work'
 import { Route as ObtainerLinksRouteImport } from './routes/obtainer.links'
 import { Route as ObtainerMessagesRouteImport } from './routes/obtainer.messages'
@@ -163,6 +164,11 @@ const ObtainerIndexRoute = ObtainerIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ObtainerRoute,
 } as any)
+const ObtainerEarningsRoute = ObtainerEarningsRouteImport.update({
+  id: '/earnings',
+  path: '/earnings',
+  getParentRoute: () => ObtainerRoute,
+} as any)
 const ObtainerFindWorkRoute = ObtainerFindWorkRouteImport.update({
   id: '/find-work',
   path: '/find-work',
@@ -229,6 +235,7 @@ export interface FileRoutesByFullPath {
   '/company/settings': typeof CompanySettingsRoute
   '/learn-more/$topic': typeof LearnMoreTopicRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
+  '/obtainer/earnings': typeof ObtainerEarningsRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
   '/obtainer/messages': typeof ObtainerMessagesRoute
@@ -260,6 +267,7 @@ export interface FileRoutesByTo {
   '/company/settings': typeof CompanySettingsRoute
   '/learn-more/$topic': typeof LearnMoreTopicRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
+  '/obtainer/earnings': typeof ObtainerEarningsRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
   '/obtainer/messages': typeof ObtainerMessagesRoute
@@ -296,6 +304,7 @@ export interface FileRoutesById {
   '/company/settings': typeof CompanySettingsRoute
   '/learn-more/$topic': typeof LearnMoreTopicRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
+  '/obtainer/earnings': typeof ObtainerEarningsRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
   '/obtainer/messages': typeof ObtainerMessagesRoute
@@ -333,6 +342,7 @@ export interface FileRouteTypes {
     | '/company/settings'
     | '/learn-more/$topic'
     | '/needs/$needId'
+    | '/obtainer/earnings'
     | '/obtainer/find-work'
     | '/obtainer/links'
     | '/obtainer/messages'
@@ -364,6 +374,7 @@ export interface FileRouteTypes {
     | '/company/settings'
     | '/learn-more/$topic'
     | '/needs/$needId'
+    | '/obtainer/earnings'
     | '/obtainer/find-work'
     | '/obtainer/links'
     | '/obtainer/messages'
@@ -399,6 +410,7 @@ export interface FileRouteTypes {
     | '/company/settings'
     | '/learn-more/$topic'
     | '/needs/$needId'
+    | '/obtainer/earnings'
     | '/obtainer/find-work'
     | '/obtainer/links'
     | '/obtainer/messages'
@@ -600,6 +612,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ObtainerIndexRouteImport
       parentRoute: typeof ObtainerRoute
     }
+    '/obtainer/earnings': {
+      id: '/obtainer/earnings'
+      path: '/earnings'
+      fullPath: '/obtainer/earnings'
+      preLoaderRoute: typeof ObtainerEarningsRouteImport
+      parentRoute: typeof ObtainerRoute
+    }
     '/obtainer/find-work': {
       id: '/obtainer/find-work'
       path: '/find-work'
@@ -719,6 +738,7 @@ const NeedsRouteChildren: NeedsRouteChildren = {
 const NeedsRouteWithChildren = NeedsRoute._addFileChildren(NeedsRouteChildren)
 
 interface ObtainerRouteChildren {
+  ObtainerEarningsRoute: typeof ObtainerEarningsRoute
   ObtainerFindWorkRoute: typeof ObtainerFindWorkRoute
   ObtainerLinksRoute: typeof ObtainerLinksRoute
   ObtainerMessagesRoute: typeof ObtainerMessagesRoute
@@ -730,6 +750,7 @@ interface ObtainerRouteChildren {
 }
 
 const ObtainerRouteChildren: ObtainerRouteChildren = {
+  ObtainerEarningsRoute: ObtainerEarningsRoute,
   ObtainerFindWorkRoute: ObtainerFindWorkRoute,
   ObtainerLinksRoute: ObtainerLinksRoute,
   ObtainerMessagesRoute: ObtainerMessagesRoute,
