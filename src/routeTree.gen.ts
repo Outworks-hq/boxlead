@@ -37,6 +37,7 @@ import { Route as ObtainerEarningsRouteImport } from './routes/obtainer.earnings
 import { Route as ObtainerFindWorkRouteImport } from './routes/obtainer.find-work'
 import { Route as ObtainerLinksRouteImport } from './routes/obtainer.links'
 import { Route as ObtainerMessagesRouteImport } from './routes/obtainer.messages'
+import { Route as ObtainerProfileRouteImport } from './routes/obtainer.profile'
 import { Route as ObtainerRelationshipsRouteImport } from './routes/obtainer.relationships'
 import { Route as ObtainerServicesRouteImport } from './routes/obtainer.services'
 import { Route as CompanyPoolsIndexRouteImport } from './routes/company.pools.index'
@@ -184,6 +185,11 @@ const ObtainerMessagesRoute = ObtainerMessagesRouteImport.update({
   path: '/messages',
   getParentRoute: () => ObtainerRoute,
 } as any)
+const ObtainerProfileRoute = ObtainerProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => ObtainerRoute,
+} as any)
 const ObtainerRelationshipsRoute = ObtainerRelationshipsRouteImport.update({
   id: '/relationships',
   path: '/relationships',
@@ -239,6 +245,7 @@ export interface FileRoutesByFullPath {
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
   '/obtainer/messages': typeof ObtainerMessagesRoute
+  '/obtainer/profile': typeof ObtainerProfileRoute
   '/obtainer/relationships': typeof ObtainerRelationshipsRoute
   '/obtainer/services': typeof ObtainerServicesRoute
   '/browse/': typeof BrowseIndexRoute
@@ -271,6 +278,7 @@ export interface FileRoutesByTo {
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
   '/obtainer/messages': typeof ObtainerMessagesRoute
+  '/obtainer/profile': typeof ObtainerProfileRoute
   '/obtainer/relationships': typeof ObtainerRelationshipsRoute
   '/obtainer/services': typeof ObtainerServicesRoute
   '/browse': typeof BrowseIndexRoute
@@ -308,6 +316,7 @@ export interface FileRoutesById {
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
   '/obtainer/messages': typeof ObtainerMessagesRoute
+  '/obtainer/profile': typeof ObtainerProfileRoute
   '/obtainer/relationships': typeof ObtainerRelationshipsRoute
   '/obtainer/services': typeof ObtainerServicesRoute
   '/browse/': typeof BrowseIndexRoute
@@ -346,6 +355,7 @@ export interface FileRouteTypes {
     | '/obtainer/find-work'
     | '/obtainer/links'
     | '/obtainer/messages'
+    | '/obtainer/profile'
     | '/obtainer/relationships'
     | '/obtainer/services'
     | '/browse/'
@@ -378,6 +388,7 @@ export interface FileRouteTypes {
     | '/obtainer/find-work'
     | '/obtainer/links'
     | '/obtainer/messages'
+    | '/obtainer/profile'
     | '/obtainer/relationships'
     | '/obtainer/services'
     | '/browse'
@@ -414,6 +425,7 @@ export interface FileRouteTypes {
     | '/obtainer/find-work'
     | '/obtainer/links'
     | '/obtainer/messages'
+    | '/obtainer/profile'
     | '/obtainer/relationships'
     | '/obtainer/services'
     | '/browse/'
@@ -640,6 +652,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ObtainerMessagesRouteImport
       parentRoute: typeof ObtainerRoute
     }
+    '/obtainer/profile': {
+      id: '/obtainer/profile'
+      path: '/profile'
+      fullPath: '/obtainer/profile'
+      preLoaderRoute: typeof ObtainerProfileRouteImport
+      parentRoute: typeof ObtainerRoute
+    }
     '/obtainer/relationships': {
       id: '/obtainer/relationships'
       path: '/relationships'
@@ -742,6 +761,7 @@ interface ObtainerRouteChildren {
   ObtainerFindWorkRoute: typeof ObtainerFindWorkRoute
   ObtainerLinksRoute: typeof ObtainerLinksRoute
   ObtainerMessagesRoute: typeof ObtainerMessagesRoute
+  ObtainerProfileRoute: typeof ObtainerProfileRoute
   ObtainerRelationshipsRoute: typeof ObtainerRelationshipsRoute
   ObtainerServicesRoute: typeof ObtainerServicesRoute
   ObtainerIndexRoute: typeof ObtainerIndexRoute
@@ -754,6 +774,7 @@ const ObtainerRouteChildren: ObtainerRouteChildren = {
   ObtainerFindWorkRoute: ObtainerFindWorkRoute,
   ObtainerLinksRoute: ObtainerLinksRoute,
   ObtainerMessagesRoute: ObtainerMessagesRoute,
+  ObtainerProfileRoute: ObtainerProfileRoute,
   ObtainerRelationshipsRoute: ObtainerRelationshipsRoute,
   ObtainerServicesRoute: ObtainerServicesRoute,
   ObtainerIndexRoute: ObtainerIndexRoute,

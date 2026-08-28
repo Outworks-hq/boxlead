@@ -77,18 +77,23 @@ function seed(): StoredPool[] {
           note: m.note,
         };
       }),
-      work: p.opportunities.map((op) => ({
-        id: op.id,
-        title: op.title,
-        scope: op.scope,
-        requirements: "Share a short written summary when you submit.",
-        compensation: op.compensation,
-        kind: "Task" as PoolWorkKind,
-        status: op.status,
-        acceptedBy: op.acceptedBy,
-        acceptedByName: op.acceptedBy ? getObtainer(op.acceptedBy)?.name : undefined,
-        posted: op.posted,
-      })),
+      work: p.opportunities.map((op) => {
+        const work: PoolWork = {
+          id: op.id,
+          title: op.title,
+          scope: op.scope,
+          requirements: "Share a short written summary when you submit.",
+          compensation: op.compensation,
+          kind: "Task",
+          status: op.status,
+          posted: op.posted,
+        };
+        if (op.acceptedBy) {
+          work.acceptedBy = op.acceptedBy;
+          work.acceptedByName = getObtainer(op.acceptedBy)?.name ?? "Member";
+        }
+        return work;
+      }),
       messages: [],
       activity: [{ id: `${p.id}-a0`, text: "Pool created", when: "Jun 2026" }],
     };
