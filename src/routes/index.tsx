@@ -103,9 +103,9 @@ function Home() {
         <div className="max-w-2xl">
           <h2 className="text-3xl font-extrabold sm:text-4xl">Two ways to keep work moving</h2>
           <p className="mt-3 text-muted-foreground">
-            Recurring services cover the responsibilities that never really end. Free Pools cover everything
-            else — paid task work sent to people you already trust, with the payment attached before anyone
-            starts. Both have a defined scope and a defined price.
+            Recurring services cover the responsibilities that never really end. Free Pools keep you
+            connected to the people you already trust for everything in between. Both have a defined scope
+            and a defined price.
           </p>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -117,8 +117,8 @@ function Home() {
             },
             {
               icon: CalendarClock,
-              title: "Paid work through trusted connections",
-              body: "Join a Free Pool and stay connected to a company, individual or community. When they have paid task work, it appears there with the payment attached and you choose whether to take it.",
+              title: "Stay connected to people you trust",
+              body: "A Free Pool keeps you connected to a company, individual or community you already work with, so nobody has to start over when something comes up outside the recurring scope.",
             },
             {
               icon: ShieldCheck,
@@ -145,8 +145,8 @@ function Home() {
                 Obtainers you can keep working with
               </h2>
               <p className="mt-3 text-ink-muted">
-                People who run a small number of ongoing responsibilities and take on extra paid tasks from
-                the companies and communities whose pools they're in.
+                Trusted individuals and groups who run a small number of ongoing recurring services for the
+                companies and communities they work with.
               </p>
             </div>
             <Button variant="onInk" asChild>
@@ -196,8 +196,8 @@ function Home() {
             <h3 className="mt-5 text-2xl font-extrabold">For companies</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Post a recurring need or approach an obtainer directly. Agree the scope, confirm the price and
-              the relationship starts. Then create a Free Pool — your own work space where people you trust
-              stay connected, see the paid tasks you post with payment attached, and choose what to take on.
+              the relationship starts. You can also create a Free Pool — your own work space where the people
+              you trust stay connected between recurring commitments.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild>
@@ -216,8 +216,8 @@ function Home() {
             <h3 className="mt-5 text-2xl font-extrabold">For obtainers</h3>
             <p className="mt-3 text-sm leading-relaxed text-ink-muted">
               Publish the recurring services you offer, set your price and rhythm, and take on a small number
-              of relationships you can keep. Join the Free Pools of companies and communities you trust and
-              pick up paid tasks as they post them — no new search, no starting from scratch each time.
+              of relationships you can keep. Join the Free Pools of companies and communities you trust to
+              stay connected with them — no new search, no starting from scratch each time.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button variant="light" asChild>
