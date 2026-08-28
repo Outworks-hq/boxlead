@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { Logo } from "@/components/brand";
 import { Button } from "@/components/ui/button";
+import { LEARN_TOPICS } from "@/lib/learn-more";
 import { useSession } from "@/lib/session";
 
 const navItems = [
@@ -15,6 +16,7 @@ const navItems = [
 
 export function PublicHeader() {
   const [open, setOpen] = useState(false);
+  const [learnOpen, setLearnOpen] = useState(false);
   const session = useSession();
 
   return (
@@ -33,7 +35,39 @@ export function PublicHeader() {
               {item.label}
             </Link>
           ))}
+
+          <div
+            className="relative"
+            onMouseEnter={() => setLearnOpen(true)}
+            onMouseLeave={() => setLearnOpen(false)}
+          >
+            <Link
+              to="/learn-more"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-foreground/85 transition-colors hover:text-ink-foreground"
+              activeProps={{ className: "text-ink-foreground" }}
+            >
+              Learn More <ChevronDown className="size-3.5" />
+            </Link>
+            {learnOpen ? (
+              <div className="absolute right-0 top-full w-[22rem] pt-4">
+                <div className="rounded-2xl border border-border bg-card p-3 shadow-card">
+                  {LEARN_TOPICS.map((t) => (
+                    <Link
+                      key={t.slug}
+                      to="/learn-more/$topic"
+                      params={{ topic: t.slug }}
+                      className="block rounded-xl px-4 py-3 transition-colors hover:bg-secondary"
+                    >
+                      <span className="block text-sm font-semibold text-foreground">{t.name}</span>
+                      <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">{t.short}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
         </nav>
+
 
         <div className="hidden items-center gap-6 lg:flex">
           {session ? (

@@ -29,6 +29,7 @@ import { Route as CompanyPaymentsRouteImport } from './routes/company.payments'
 import { Route as CompanyServicesRouteImport } from './routes/company.services'
 import { Route as CompanySettingsRouteImport } from './routes/company.settings'
 import { Route as LearnMoreIndexRouteImport } from './routes/learn-more.index'
+import { Route as LearnMoreTopicRouteImport } from './routes/learn-more.$topic'
 import { Route as NeedsIndexRouteImport } from './routes/needs.index'
 import { Route as NeedsNeedIdRouteImport } from './routes/needs.$needId'
 import { Route as ObtainerIndexRouteImport } from './routes/obtainer.index'
@@ -141,6 +142,11 @@ const LearnMoreIndexRoute = LearnMoreIndexRouteImport.update({
   path: '/learn-more/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LearnMoreTopicRoute = LearnMoreTopicRouteImport.update({
+  id: '/learn-more/$topic',
+  path: '/learn-more/$topic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NeedsIndexRoute = NeedsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -215,6 +221,7 @@ export interface FileRoutesByFullPath {
   '/company/payments': typeof CompanyPaymentsRoute
   '/company/services': typeof CompanyServicesRoute
   '/company/settings': typeof CompanySettingsRoute
+  '/learn-more/$topic': typeof LearnMoreTopicRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
@@ -244,6 +251,7 @@ export interface FileRoutesByTo {
   '/company/payments': typeof CompanyPaymentsRoute
   '/company/services': typeof CompanyServicesRoute
   '/company/settings': typeof CompanySettingsRoute
+  '/learn-more/$topic': typeof LearnMoreTopicRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
@@ -278,6 +286,7 @@ export interface FileRoutesById {
   '/company/payments': typeof CompanyPaymentsRoute
   '/company/services': typeof CompanyServicesRoute
   '/company/settings': typeof CompanySettingsRoute
+  '/learn-more/$topic': typeof LearnMoreTopicRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
@@ -313,6 +322,7 @@ export interface FileRouteTypes {
     | '/company/payments'
     | '/company/services'
     | '/company/settings'
+    | '/learn-more/$topic'
     | '/needs/$needId'
     | '/obtainer/find-work'
     | '/obtainer/links'
@@ -342,6 +352,7 @@ export interface FileRouteTypes {
     | '/company/payments'
     | '/company/services'
     | '/company/settings'
+    | '/learn-more/$topic'
     | '/needs/$needId'
     | '/obtainer/find-work'
     | '/obtainer/links'
@@ -375,6 +386,7 @@ export interface FileRouteTypes {
     | '/company/payments'
     | '/company/services'
     | '/company/settings'
+    | '/learn-more/$topic'
     | '/needs/$needId'
     | '/obtainer/find-work'
     | '/obtainer/links'
@@ -402,6 +414,7 @@ export interface RootRouteChildren {
   NeedsRoute: typeof NeedsRouteWithChildren
   ObtainerRoute: typeof ObtainerRouteWithChildren
   PricingRoute: typeof PricingRoute
+  LearnMoreTopicRoute: typeof LearnMoreTopicRoute
   LearnMoreIndexRoute: typeof LearnMoreIndexRoute
 }
 
@@ -545,6 +558,13 @@ declare module '@tanstack/react-router' {
       path: '/learn-more'
       fullPath: '/learn-more/'
       preLoaderRoute: typeof LearnMoreIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn-more/$topic': {
+      id: '/learn-more/$topic'
+      path: '/learn-more/$topic'
+      fullPath: '/learn-more/$topic'
+      preLoaderRoute: typeof LearnMoreTopicRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/needs/': {
@@ -714,6 +734,7 @@ const rootRouteChildren: RootRouteChildren = {
   NeedsRoute: NeedsRouteWithChildren,
   ObtainerRoute: ObtainerRouteWithChildren,
   PricingRoute: PricingRoute,
+  LearnMoreTopicRoute: LearnMoreTopicRoute,
   LearnMoreIndexRoute: LearnMoreIndexRoute,
 }
 export const routeTree = rootRouteImport
