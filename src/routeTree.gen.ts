@@ -26,7 +26,6 @@ import { Route as CompanyMessagesRouteImport } from './routes/company.messages'
 import { Route as CompanyNeedsRouteImport } from './routes/company.needs'
 import { Route as CompanyObtainersRouteImport } from './routes/company.obtainers'
 import { Route as CompanyPaymentsRouteImport } from './routes/company.payments'
-import { Route as CompanyPoolsRouteImport } from './routes/company.pools'
 import { Route as CompanyServicesRouteImport } from './routes/company.services'
 import { Route as CompanySettingsRouteImport } from './routes/company.settings'
 import { Route as NeedsIndexRouteImport } from './routes/needs.index'
@@ -34,7 +33,6 @@ import { Route as NeedsNeedIdRouteImport } from './routes/needs.$needId'
 import { Route as ObtainerIndexRouteImport } from './routes/obtainer.index'
 import { Route as ObtainerFindWorkRouteImport } from './routes/obtainer.find-work'
 import { Route as ObtainerLinksRouteImport } from './routes/obtainer.links'
-import { Route as ObtainerPoolsRouteImport } from './routes/obtainer.pools'
 import { Route as ObtainerRelationshipsRouteImport } from './routes/obtainer.relationships'
 import { Route as ObtainerServicesRouteImport } from './routes/obtainer.services'
 
@@ -123,11 +121,6 @@ const CompanyPaymentsRoute = CompanyPaymentsRouteImport.update({
   path: '/payments',
   getParentRoute: () => CompanyRoute,
 } as any)
-const CompanyPoolsRoute = CompanyPoolsRouteImport.update({
-  id: '/pools',
-  path: '/pools',
-  getParentRoute: () => CompanyRoute,
-} as any)
 const CompanyServicesRoute = CompanyServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -163,11 +156,6 @@ const ObtainerLinksRoute = ObtainerLinksRouteImport.update({
   path: '/links',
   getParentRoute: () => ObtainerRoute,
 } as any)
-const ObtainerPoolsRoute = ObtainerPoolsRouteImport.update({
-  id: '/pools',
-  path: '/pools',
-  getParentRoute: () => ObtainerRoute,
-} as any)
 const ObtainerRelationshipsRoute = ObtainerRelationshipsRouteImport.update({
   id: '/relationships',
   path: '/relationships',
@@ -195,13 +183,11 @@ export interface FileRoutesByFullPath {
   '/company/needs': typeof CompanyNeedsRoute
   '/company/obtainers': typeof CompanyObtainersRoute
   '/company/payments': typeof CompanyPaymentsRoute
-  '/company/pools': typeof CompanyPoolsRoute
   '/company/services': typeof CompanyServicesRoute
   '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
-  '/obtainer/pools': typeof ObtainerPoolsRoute
   '/obtainer/relationships': typeof ObtainerRelationshipsRoute
   '/obtainer/services': typeof ObtainerServicesRoute
   '/browse/': typeof BrowseIndexRoute
@@ -221,13 +207,11 @@ export interface FileRoutesByTo {
   '/company/needs': typeof CompanyNeedsRoute
   '/company/obtainers': typeof CompanyObtainersRoute
   '/company/payments': typeof CompanyPaymentsRoute
-  '/company/pools': typeof CompanyPoolsRoute
   '/company/services': typeof CompanyServicesRoute
   '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
-  '/obtainer/pools': typeof ObtainerPoolsRoute
   '/obtainer/relationships': typeof ObtainerRelationshipsRoute
   '/obtainer/services': typeof ObtainerServicesRoute
   '/browse': typeof BrowseIndexRoute
@@ -252,13 +236,11 @@ export interface FileRoutesById {
   '/company/needs': typeof CompanyNeedsRoute
   '/company/obtainers': typeof CompanyObtainersRoute
   '/company/payments': typeof CompanyPaymentsRoute
-  '/company/pools': typeof CompanyPoolsRoute
   '/company/services': typeof CompanyServicesRoute
   '/company/settings': typeof CompanySettingsRoute
   '/needs/$needId': typeof NeedsNeedIdRoute
   '/obtainer/find-work': typeof ObtainerFindWorkRoute
   '/obtainer/links': typeof ObtainerLinksRoute
-  '/obtainer/pools': typeof ObtainerPoolsRoute
   '/obtainer/relationships': typeof ObtainerRelationshipsRoute
   '/obtainer/services': typeof ObtainerServicesRoute
   '/browse/': typeof BrowseIndexRoute
@@ -284,13 +266,11 @@ export interface FileRouteTypes {
     | '/company/needs'
     | '/company/obtainers'
     | '/company/payments'
-    | '/company/pools'
     | '/company/services'
     | '/company/settings'
     | '/needs/$needId'
     | '/obtainer/find-work'
     | '/obtainer/links'
-    | '/obtainer/pools'
     | '/obtainer/relationships'
     | '/obtainer/services'
     | '/browse/'
@@ -310,13 +290,11 @@ export interface FileRouteTypes {
     | '/company/needs'
     | '/company/obtainers'
     | '/company/payments'
-    | '/company/pools'
     | '/company/services'
     | '/company/settings'
     | '/needs/$needId'
     | '/obtainer/find-work'
     | '/obtainer/links'
-    | '/obtainer/pools'
     | '/obtainer/relationships'
     | '/obtainer/services'
     | '/browse'
@@ -340,13 +318,11 @@ export interface FileRouteTypes {
     | '/company/needs'
     | '/company/obtainers'
     | '/company/payments'
-    | '/company/pools'
     | '/company/services'
     | '/company/settings'
     | '/needs/$needId'
     | '/obtainer/find-work'
     | '/obtainer/links'
-    | '/obtainer/pools'
     | '/obtainer/relationships'
     | '/obtainer/services'
     | '/browse/'
@@ -489,13 +465,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyPaymentsRouteImport
       parentRoute: typeof CompanyRoute
     }
-    '/company/pools': {
-      id: '/company/pools'
-      path: '/pools'
-      fullPath: '/company/pools'
-      preLoaderRoute: typeof CompanyPoolsRouteImport
-      parentRoute: typeof CompanyRoute
-    }
     '/company/services': {
       id: '/company/services'
       path: '/services'
@@ -545,13 +514,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ObtainerLinksRouteImport
       parentRoute: typeof ObtainerRoute
     }
-    '/obtainer/pools': {
-      id: '/obtainer/pools'
-      path: '/pools'
-      fullPath: '/obtainer/pools'
-      preLoaderRoute: typeof ObtainerPoolsRouteImport
-      parentRoute: typeof ObtainerRoute
-    }
     '/obtainer/relationships': {
       id: '/obtainer/relationships'
       path: '/relationships'
@@ -587,7 +549,6 @@ interface CompanyRouteChildren {
   CompanyNeedsRoute: typeof CompanyNeedsRoute
   CompanyObtainersRoute: typeof CompanyObtainersRoute
   CompanyPaymentsRoute: typeof CompanyPaymentsRoute
-  CompanyPoolsRoute: typeof CompanyPoolsRoute
   CompanyServicesRoute: typeof CompanyServicesRoute
   CompanySettingsRoute: typeof CompanySettingsRoute
   CompanyIndexRoute: typeof CompanyIndexRoute
@@ -598,7 +559,6 @@ const CompanyRouteChildren: CompanyRouteChildren = {
   CompanyNeedsRoute: CompanyNeedsRoute,
   CompanyObtainersRoute: CompanyObtainersRoute,
   CompanyPaymentsRoute: CompanyPaymentsRoute,
-  CompanyPoolsRoute: CompanyPoolsRoute,
   CompanyServicesRoute: CompanyServicesRoute,
   CompanySettingsRoute: CompanySettingsRoute,
   CompanyIndexRoute: CompanyIndexRoute,
@@ -622,7 +582,6 @@ const NeedsRouteWithChildren = NeedsRoute._addFileChildren(NeedsRouteChildren)
 interface ObtainerRouteChildren {
   ObtainerFindWorkRoute: typeof ObtainerFindWorkRoute
   ObtainerLinksRoute: typeof ObtainerLinksRoute
-  ObtainerPoolsRoute: typeof ObtainerPoolsRoute
   ObtainerRelationshipsRoute: typeof ObtainerRelationshipsRoute
   ObtainerServicesRoute: typeof ObtainerServicesRoute
   ObtainerIndexRoute: typeof ObtainerIndexRoute
@@ -631,7 +590,6 @@ interface ObtainerRouteChildren {
 const ObtainerRouteChildren: ObtainerRouteChildren = {
   ObtainerFindWorkRoute: ObtainerFindWorkRoute,
   ObtainerLinksRoute: ObtainerLinksRoute,
-  ObtainerPoolsRoute: ObtainerPoolsRoute,
   ObtainerRelationshipsRoute: ObtainerRelationshipsRoute,
   ObtainerServicesRoute: ObtainerServicesRoute,
   ObtainerIndexRoute: ObtainerIndexRoute,
