@@ -14,12 +14,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "BoxLead connects companies with obtainers who take ongoing responsibility for recurring work — and lets them stay connected in Free Pools where paid task work is offered as it comes up.",
+          "BoxLead helps companies build ongoing working relationships with trusted Obtainers through recurring services with a clear scope, price and billing rhythm.",
       },
-      { property: "og:title", content: "BoxLead — Recurring services and paid work through trusted connections" },
+      { property: "og:title", content: "BoxLead — Recurring service relationships for companies" },
       {
         property: "og:description",
-        content: "Recurring responsibilities, plus paid task work from people you already trust. Not job posts.",
+        content: "Ongoing recurring service relationships with trusted Obtainers. Not job posts.",
       },
     ],
   }),
@@ -35,7 +35,7 @@ function Home() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-14 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-28 lg:pt-16">
           <div className="max-w-xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-ink-border px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ink-muted">
-              <Repeat className="size-3.5" /> Recurring work and paid tasks
+              <Repeat className="size-3.5" /> Recurring service relationships
             </span>
             <h1 className="mt-6 text-[2.6rem] font-extrabold leading-[1.05] text-ink-foreground sm:text-6xl">
               Work that repeats.
@@ -45,10 +45,12 @@ function Home() {
               that last.
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-muted sm:text-lg">
-              BoxLead is where companies find obtainers who take ongoing responsibility for recurring
-              work — an agreed scope, an agreed price, billed on a rhythm you both choose. And when work
-              isn't recurring, people stay connected in a Free Pool and choose paid tasks as they come up,
-              instead of starting a new freelancer search every time.
+              BoxLead helps companies build ongoing working relationships with trusted Obtainers through
+              recurring services with a clear scope, price, and billing rhythm.
+            </p>
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-ink-muted sm:text-lg">
+              When recurring work is not needed, Free Pools let companies stay connected with people they
+              trust instead of starting over every time.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button variant="light" size="lg" asChild>
@@ -101,9 +103,9 @@ function Home() {
         <div className="max-w-2xl">
           <h2 className="text-3xl font-extrabold sm:text-4xl">Two ways to keep work moving</h2>
           <p className="mt-3 text-muted-foreground">
-            Recurring services cover the responsibilities that never really end. Free Pools cover everything
-            else — paid task work sent to people you already trust, with the payment attached before anyone
-            starts. Both have a defined scope and a defined price.
+            Recurring services cover the responsibilities that never really end. Free Pools keep you
+            connected to the people you already trust for everything in between. Both have a defined scope
+            and a defined price.
           </p>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -115,8 +117,8 @@ function Home() {
             },
             {
               icon: CalendarClock,
-              title: "Paid work through trusted connections",
-              body: "Join a Free Pool and stay connected to a company, individual or community. When they have paid task work, it appears there with the payment attached and you choose whether to take it.",
+              title: "Stay connected to people you trust",
+              body: "A Free Pool keeps you connected to a company, individual or community you already work with, so nobody has to start over when something comes up outside the recurring scope.",
             },
             {
               icon: ShieldCheck,
@@ -143,8 +145,8 @@ function Home() {
                 Obtainers you can keep working with
               </h2>
               <p className="mt-3 text-ink-muted">
-                People who run a small number of ongoing responsibilities and take on extra paid tasks from
-                the companies and communities whose pools they're in.
+                Trusted individuals and groups who run a small number of ongoing recurring services for the
+                companies and communities they work with.
               </p>
             </div>
             <Button variant="onInk" asChild>
@@ -194,8 +196,8 @@ function Home() {
             <h3 className="mt-5 text-2xl font-extrabold">For companies</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Post a recurring need or approach an obtainer directly. Agree the scope, confirm the price and
-              the relationship starts. Then create a Free Pool — your own work space where people you trust
-              stay connected, see the paid tasks you post with payment attached, and choose what to take on.
+              the relationship starts. You can also create a Free Pool — your own work space where the people
+              you trust stay connected between recurring commitments.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild>
@@ -214,8 +216,8 @@ function Home() {
             <h3 className="mt-5 text-2xl font-extrabold">For obtainers</h3>
             <p className="mt-3 text-sm leading-relaxed text-ink-muted">
               Publish the recurring services you offer, set your price and rhythm, and take on a small number
-              of relationships you can keep. Join the Free Pools of companies and communities you trust and
-              pick up paid tasks as they post them — no new search, no starting from scratch each time.
+              of relationships you can keep. Join the Free Pools of companies and communities you trust to
+              stay connected with them — no new search, no starting from scratch each time.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button variant="light" asChild>

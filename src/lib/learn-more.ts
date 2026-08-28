@@ -34,39 +34,17 @@ export const LEARN_TOPICS: LearnTopic[] = [
     ],
   },
   {
-    slug: "private-links",
-    name: "Private Links",
-    short: "A direct link to your service, shared only with the people you choose.",
-    intro:
-      "A Private Link is a shareable page for one of your recurring services. You send it to a company you already know, and they can read the scope, price and rhythm and start the relationship without going through public browsing.",
-    points: [
-      "One link per service, switch it on or off whenever you want.",
-      "Keeps existing clients out of the public marketplace flow.",
-      "The same confirmed-scope rules apply before anything starts.",
-    ],
-  },
-  {
-    slug: "presales",
-    name: "PreSales",
-    short: "Sort out questions, scope and price before anything is committed.",
-    intro:
-      "PreSales is the conversation that happens before a relationship or a pool task starts. Both sides ask questions, adjust the scope and settle the price, so nothing begins until the expectation is the same on both sides.",
-    points: [
-      "Ask questions about scope, timing and access before committing.",
-      "Adjust the price or the scope until both sides agree.",
-      "Nothing is billed until both sides confirm.",
-    ],
-  },
-  {
     slug: "uptainer",
-    name: "UpTainer",
-    short: "Grow a trusted connection into a bigger ongoing responsibility.",
+    name: "UpTainer Enterprise",
+    short: "Take an established BoxLead relationship further. Future feature.",
     intro:
-      "UpTainer is how a light connection becomes a larger one. Someone who has been taking occasional paid tasks in your pool can be moved up into a full recurring service with its own scope, price and billing rhythm.",
+      "After a company has worked with an Obtainer, built trust, and no longer needs the normal marketplace layer for that relationship, UpTainer provides a deeper way to work together inside approved company systems and operating environments. The company decides who it trusts. UpTainer simply provides the enterprise layer for that trusted relationship.",
     points: [
-      "Starts from work already delivered, so there's real context.",
-      "Turns occasional task work into an agreed recurring responsibility.",
-      "Both sides confirm the new scope and price before it takes effect.",
+      "Find an Obtainer on BoxLead and establish a recurring service relationship.",
+      "Work together over time until the company decides it trusts that person or group.",
+      "Move that relationship into UpTainer Enterprise for deeper internal access and work.",
+      "BoxLead does not certify or declare any provider trustworthy — the company decides.",
+      "UpTainer is a future feature and is not part of the current BoxLead launch offering.",
     ],
   },
   {

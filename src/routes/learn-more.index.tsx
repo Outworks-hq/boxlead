@@ -10,7 +10,7 @@ export const Route = createFileRoute("/learn-more/")({
       {
         name: "description",
         content:
-          "Free Pool, ServiceTap, Private Links, PreSales, UpTainer and Support — what each part of BoxLead does, in plain English.",
+          "Free Pool, ServiceTap, UpTainer Enterprise and Support — what each part of BoxLead does, in plain English.",
       },
       { property: "og:title", content: "Learn More — BoxLead functions explained" },
       { property: "og:description", content: "Every BoxLead function explained in plain English." },
