@@ -10,12 +10,12 @@ export const Route = createFileRoute("/how-it-works")({
       {
         name: "description",
         content:
-          "BoxLead in four parts: recurring needs, recurring services, confirmed scope, and Free Pools for the occasional extra task.",
+          "BoxLead in two halves: recurring services with an agreed scope and price, and Free Pools where people stay connected and choose paid task work as it comes up.",
       },
       { property: "og:title", content: "How It Works — BoxLead" },
       {
         property: "og:description",
-        content: "Recurring needs, recurring services, confirmed scope and Free Pools.",
+        content: "Recurring responsibilities, and paid task work through trusted connections.",
       },
     ],
   }),
@@ -36,16 +36,20 @@ const blocks = [
     body: "Nothing starts until both sides confirm the same scope and price. Changes to a live relationship also need both confirmations, so neither side can quietly expand the work.",
   },
   {
-    title: "Free Pools",
-    body: "A private group of obtainers a company already trusts. Occasional tasks that sit outside any recurring scope can be posted there with their own compensation. Members choose what they accept.",
+    title: "Free Pools — staying connected",
+    body: "A Free Pool is a work space that belongs to one company, individual or community. People join that specific pool and stay in it, so there's no new freelancer search every time something comes up.",
+  },
+  {
+    title: "Free Pools — choosing paid work",
+    body: "When the pool owner has work available, they post it inside the pool with the scope, requirements and payment already attached. Members see it, choose whether to take it, complete it and submit it. Once the owner approves, payment is released.",
   },
   {
     title: "Billing that follows the rhythm",
-    body: "Weekly, bi-weekly, monthly or quarterly. Payments repeat with the work until the relationship is paused or ended.",
+    body: "Recurring services bill weekly, bi-weekly, monthly or quarterly, repeating with the work. Pool work is paid per task, on approval.",
   },
   {
     title: "Ending well",
-    body: "Either side can pause or end a relationship. History stays on both accounts so future relationships start with real context.",
+    body: "Either side can pause or end a relationship, and members can leave a pool at any time. History stays on both accounts so future work starts with real context.",
   },
 ];
 
@@ -58,11 +62,13 @@ function HowItWorks() {
             How BoxLead works
           </h1>
           <p className="mt-5 max-w-2xl text-ink-muted">
-            One idea, applied consistently: recurring work belongs in a relationship with a defined scope,
-            not in a stream of one-off jobs.
+            Two things, applied consistently. Recurring work belongs in a relationship with a defined scope.
+            Everything else belongs in a Free Pool, where people stay connected to companies and individuals
+            they trust and choose the paid task work they're sent.
           </p>
         </div>
       </section>
+
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

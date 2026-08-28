@@ -109,7 +109,7 @@ function ObtainerOverview() {
                 return (
                   <li key={t.id} className="rounded-2xl border border-border p-4">
                     <p className="text-sm font-semibold">{c?.name}</p>
-                    <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{last.text}</p>
+                    <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{last?.text}</p>
                   </li>
                 );
               })}
