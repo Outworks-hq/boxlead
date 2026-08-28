@@ -111,7 +111,29 @@ export function PublicHeader() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              to="/learn-more"
+              onClick={() => setOpen(false)}
+              className="rounded-xl px-3 py-3 text-base font-medium text-ink-foreground/85 hover:bg-ink-foreground/10"
+            >
+              Learn More
+            </Link>
+            <div className="ml-3 flex flex-col gap-1 border-l border-ink-border pl-3">
+              {LEARN_TOPICS.map((t) => (
+                <Link
+                  key={t.slug}
+                  to="/learn-more/$topic"
+                  params={{ topic: t.slug }}
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl px-3 py-2.5 hover:bg-ink-foreground/10"
+                >
+                  <span className="block text-sm font-medium text-ink-foreground/85">{t.name}</span>
+                  <span className="mt-0.5 block text-xs leading-relaxed text-ink-muted">{t.short}</span>
+                </Link>
+              ))}
+            </div>
           </nav>
+
           <div className="mt-4 flex flex-col gap-3">
             {session ? (
               <Button variant="light" size="lg" asChild>
