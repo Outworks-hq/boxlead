@@ -14,12 +14,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "BoxLead connects companies with obtainers who take ongoing responsibility for recurring work — and lets them stay connected in Free Pools where paid task work is offered as it comes up.",
+          "BoxLead helps companies build ongoing working relationships with trusted Obtainers through recurring services with a clear scope, price and billing rhythm.",
       },
-      { property: "og:title", content: "BoxLead — Recurring services and paid work through trusted connections" },
+      { property: "og:title", content: "BoxLead — Recurring service relationships for companies" },
       {
         property: "og:description",
-        content: "Recurring responsibilities, plus paid task work from people you already trust. Not job posts.",
+        content: "Ongoing recurring service relationships with trusted Obtainers. Not job posts.",
       },
     ],
   }),
