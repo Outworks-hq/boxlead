@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu, Search } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { Logo } from "@/components/brand";
@@ -69,7 +69,15 @@ export function PublicHeader() {
         </nav>
 
 
-        <div className="hidden items-center gap-6 lg:flex">
+        <div className="hidden items-center gap-5 lg:flex">
+          <Link
+            to="/search"
+            aria-label="Search BoxLead"
+            className="inline-flex items-center gap-2 rounded-full border border-ink-border px-4 py-2 text-sm font-medium text-ink-foreground/85 transition-colors hover:text-ink-foreground"
+            activeProps={{ className: "text-ink-foreground" }}
+          >
+            <Search className="size-4" /> Search
+          </Link>
           {session ? (
             <Button variant="light" asChild>
               <Link to={session.role === "company" ? "/company" : "/obtainer"}>Go to dashboard</Link>
@@ -111,6 +119,13 @@ export function PublicHeader() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              to="/search"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 rounded-xl px-3 py-3 text-base font-medium text-ink-foreground/85 hover:bg-ink-foreground/10"
+            >
+              <Search className="size-4" /> Search
+            </Link>
             <Link
               to="/learn-more"
               onClick={() => setOpen(false)}
