@@ -28,6 +28,7 @@ import { Route as CompanyObtainersRouteImport } from './routes/company.obtainers
 import { Route as CompanyPaymentsRouteImport } from './routes/company.payments'
 import { Route as CompanyServicesRouteImport } from './routes/company.services'
 import { Route as CompanySettingsRouteImport } from './routes/company.settings'
+import { Route as LearnMoreIndexRouteImport } from './routes/learn-more.index'
 import { Route as NeedsIndexRouteImport } from './routes/needs.index'
 import { Route as NeedsNeedIdRouteImport } from './routes/needs.$needId'
 import { Route as ObtainerIndexRouteImport } from './routes/obtainer.index'
@@ -135,6 +136,11 @@ const CompanySettingsRoute = CompanySettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => CompanyRoute,
 } as any)
+const LearnMoreIndexRoute = LearnMoreIndexRouteImport.update({
+  id: '/learn-more/',
+  path: '/learn-more/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NeedsIndexRoute = NeedsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -216,6 +222,7 @@ export interface FileRoutesByFullPath {
   '/obtainer/services': typeof ObtainerServicesRoute
   '/browse/': typeof BrowseIndexRoute
   '/company/': typeof CompanyIndexRoute
+  '/learn-more/': typeof LearnMoreIndexRoute
   '/needs/': typeof NeedsIndexRoute
   '/obtainer/': typeof ObtainerIndexRoute
   '/company/pools/$poolId': typeof CompanyPoolsPoolIdRoute
@@ -244,6 +251,7 @@ export interface FileRoutesByTo {
   '/obtainer/services': typeof ObtainerServicesRoute
   '/browse': typeof BrowseIndexRoute
   '/company': typeof CompanyIndexRoute
+  '/learn-more': typeof LearnMoreIndexRoute
   '/needs': typeof NeedsIndexRoute
   '/obtainer': typeof ObtainerIndexRoute
   '/company/pools/$poolId': typeof CompanyPoolsPoolIdRoute
@@ -277,6 +285,7 @@ export interface FileRoutesById {
   '/obtainer/services': typeof ObtainerServicesRoute
   '/browse/': typeof BrowseIndexRoute
   '/company/': typeof CompanyIndexRoute
+  '/learn-more/': typeof LearnMoreIndexRoute
   '/needs/': typeof NeedsIndexRoute
   '/obtainer/': typeof ObtainerIndexRoute
   '/company/pools/$poolId': typeof CompanyPoolsPoolIdRoute
@@ -311,6 +320,7 @@ export interface FileRouteTypes {
     | '/obtainer/services'
     | '/browse/'
     | '/company/'
+    | '/learn-more/'
     | '/needs/'
     | '/obtainer/'
     | '/company/pools/$poolId'
@@ -339,6 +349,7 @@ export interface FileRouteTypes {
     | '/obtainer/services'
     | '/browse'
     | '/company'
+    | '/learn-more'
     | '/needs'
     | '/obtainer'
     | '/company/pools/$poolId'
@@ -371,6 +382,7 @@ export interface FileRouteTypes {
     | '/obtainer/services'
     | '/browse/'
     | '/company/'
+    | '/learn-more/'
     | '/needs/'
     | '/obtainer/'
     | '/company/pools/$poolId'
@@ -390,6 +402,7 @@ export interface RootRouteChildren {
   NeedsRoute: typeof NeedsRouteWithChildren
   ObtainerRoute: typeof ObtainerRouteWithChildren
   PricingRoute: typeof PricingRoute
+  LearnMoreIndexRoute: typeof LearnMoreIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -526,6 +539,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/company/settings'
       preLoaderRoute: typeof CompanySettingsRouteImport
       parentRoute: typeof CompanyRoute
+    }
+    '/learn-more/': {
+      id: '/learn-more/'
+      path: '/learn-more'
+      fullPath: '/learn-more/'
+      preLoaderRoute: typeof LearnMoreIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/needs/': {
       id: '/needs/'
@@ -694,6 +714,7 @@ const rootRouteChildren: RootRouteChildren = {
   NeedsRoute: NeedsRouteWithChildren,
   ObtainerRoute: ObtainerRouteWithChildren,
   PricingRoute: PricingRoute,
+  LearnMoreIndexRoute: LearnMoreIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
